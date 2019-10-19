@@ -18,14 +18,14 @@ namespace try2.Views
     [DesignTimeVisible(false)]
     public partial class ItemsPage : ContentPage
     {
-        //ItemsViewModel viewModel;
+        ItemsViewModel viewModel;
         List<Item> items;
 
         public ItemsPage()
         {
             InitializeComponent();
 
-            //BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new ItemsViewModel();
             SetupData();
             listView.ItemsSource = items;
         }
@@ -52,31 +52,29 @@ namespace try2.Views
                 listView.SelectedItem = null;
                 await Navigation.PushModalAsync(detailPage);
             }
+
+            var item2 = e.SelectedItem as Item;
+            if (item2 == null)
+                return;
+
+            await Navigation.PushModalAsync(new DetailPage());
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+
         }
-
-        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        //{
-        //    var item = args.SelectedItem as Item;
-        //    if (item == null)
-        //        return;
-
-        //    await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-        //    // Manually deselect item.
-        //    ItemsListView.SelectedItem = null;
-        //}
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-        //    if (viewModel.Items.Count == 0)
-        //        viewModel.LoadItemsCommand.Execute(null);
-        //}
+            if (viewModel.Items.Count == 0)
+                viewModel.LoadItemsCommand.Execute(null);
+        }
     }
 }

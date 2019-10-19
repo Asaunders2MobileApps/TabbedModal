@@ -8,9 +8,9 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <StackLayout Orientation="Horizontal">
-                <Label Text="Name:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold" />
-            </StackLayout>
+				<Label Text="Name:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
+				<Label Text="{Binding Item.Name}" FontSize="Medium" FontAttributes="Bold" />
+			</StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="ID:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
                 <Label Text="{Binding Id}" FontSize="Medium" FontAttributes="Bold" />
