@@ -13,8 +13,6 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <ListView x:Name="listView" ItemSelected="OnItemSelected" />
-
         <StackLayout>
             <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"

@@ -13,15 +13,15 @@
 			</StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="ID:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                <Label Text="{Binding Id}" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding Item.Id}" FontSize="Medium" FontAttributes="Bold" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Text:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                <Label Text="{Binding Text}" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding Item.Text}" FontSize="Medium" FontAttributes="Bold" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Description:" FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                <Label Text="{Binding Description}" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding Item.Description}" FontSize="Medium" FontAttributes="Bold" />
             </StackLayout>
             <Button x:Name="dismissButton" Text="Dismiss" Clicked="OnDismissButtonClicked" />
         </StackLayout>

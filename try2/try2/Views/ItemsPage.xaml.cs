@@ -19,40 +19,18 @@ namespace try2.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
-        List<Item> items;
+      
 
         public ItemsPage()
         {
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
-            SetupData();
-            listView.ItemsSource = items;
-        }
-
-        private void SetupData()
-        {
-            items = new List<Item>();
-            items.Add(new Item
-            {
-                Name = "Item No. 1",
-                Id = "1",
-                Text = "Item 1",
-                Description = "item number 1"
-            });
+            
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as Item;
-            if (listView.SelectedItem != null)
-            {
-                var detailPage = new DetailPage();
-                detailPage.BindingContext = e.SelectedItem as Item;
-                listView.SelectedItem = null;
-                await Navigation.PushModalAsync(detailPage);
-            }
-
             var item2 = e.SelectedItem as Item;
             if (item2 == null)
                 return;
